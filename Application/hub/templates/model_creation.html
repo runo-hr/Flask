@@ -1,0 +1,84 @@
+{% extends 'pneumonia_base.html' %}
+
+{% block subtitle %}
+Model Creation
+{% endblock %}
+
+{% block model %}
+class="current thicker"
+{% endblock %}
+
+{% block col_left %}
+<div class="pre-scrollable" style="max-height: 75vh">
+						 <pre>
+							<code>
+from flask import Flask, render_template, request, jsonify
+import base64
+from PIL import Image
+import io
+from hub import app
+import numpy as np
+from tensorflow.keras.preprocessing.image import img_to_array
+
+def preprocess_image(image, target_size):
+    if image.mode != "RGB":
+        image = image.convert("RGB")
+    image = image.resize(target_size)
+    image = img_to_array(image)
+    image = np.expand_dims(image, axis=0)
+    return image
+
+
+@app.route('/')
+def home_page():
+    return render_template('index.html')
+
+@app.route('/work')
+def work_page():
+    return render_template('work.html')
+
+@app.route('/profile')
+def profile_page():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact_page():
+    return render_template('contact.html')
+
+@app.route('/pneumonia')
+def pneumonia_page():
+    return render_template('pneumonia.html')
+
+'''
+@app.route("/predict", methods=["POST"])
+def predict():
+    message = request.get_json(force=True)
+    encoded = message['image']
+    decoded = base64.b64decode(encoded)
+    image = Image.open(io.BytesIO(decoded))
+    processed_image = preprocess_image(image, target_size=(224, 224))
+
+    prediction = model.predict(processed_image).tolist()
+
+    response = {
+        'prediction': {
+            'Normal': prediction[0][0],
+            'Pneumonia': prediction[0][1]
+        }
+    }
+    return jsonify(response)
+'''
+							</code>
+						 </pre>
+</div>
+
+{% endblock %}
+
+{% block prev_nxt %}
+<div class="container">
+  <ul class="pager">
+    <li><a href="{{url_for('stack_page')}}">Prev</a></li>
+    <li><a href="{{url_for('application_page')}}">Next</a></li>
+  </ul>
+</div>
+{% endblock %}

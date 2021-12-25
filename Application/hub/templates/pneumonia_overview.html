@@ -1,0 +1,36 @@
+{% extends 'pneumonia_base.html' %}
+
+{% block subtitle %}
+Overview
+{% endblock %}
+
+{% block overview %}
+class="current thicker"
+{% endblock %}
+
+{% block col_left %}
+<div id="fh5co-author">
+    <div class="container">
+        <div class="row top-line animate-box">
+            <div class="col-md-6 col-md-offset-0 col-md-push-2 text-center fh5co-heading">
+                <h2>About Me</h2>
+                <h3>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                    the blind texts. Separated they live in Bookmarksgrove</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <blockquote> <p><span>hello world Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                    the blind texts. Separated they live in Bookmarksgrove
+</span> </p> </blockquote>
+
+{% endblock %}
+{% block prev_nxt %}
+<div class="container">
+  <ul class="pager">
+    <li><a href="{{url_for('stack_page')}}">Next</a></li>
+  </ul>
+</div>
+{% endblock %}

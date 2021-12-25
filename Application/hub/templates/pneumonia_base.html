@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="row animate-box " style="margin-top:20px; margin-left:20px">
+    <div class="col-md-8">
+        <div class="page-header ">
+            <h1><b>Pneumonia Detection</b></h1>
+        </div>
+        {% block col_left %}
+        {% endblock %}
+        {% block prev_nxt %}
+        {% endblock %}
+    </div>
+    <div class="col-md-4 " style="margin-top:100px ">
+        <ul>
+            <li> <a {% block overview %} {% endblock %} href="{{url_for('pneumonia_overview_page')}}">Overview</a> </li>
+            <li> <a {% block stack %} {% endblock %} href="{{url_for('stack_page')}}">Tech Stack</a> </li>
+            <li> <a {% block model %} {% endblock %} href="{{url_for('model_creation_page')}}">Model Creation</a> </li>
+            <li> <a {% block application %} {% endblock %} href="{{url_for('application_page')}}">Application</a> </li>
+        </ul>
+        <!--
+        <p>
+            <span class="fh5co-highlight">
+            <a href="{{url_for('pneumonia_overview_page')}}">Overview</a>
+            </span>
+        </p>
+        <p>
+            <span class="fh5co-highlight">
+            <a href="{{url_for('stack_page')}}">Tech Stack</a>
+            </span>
+        </p>
+        <p>
+            <span class="fh5co-highlight">
+            <a href="{{url_for('model_creation_page')}}">Model Creation</a>
+            </span>
+        </p>
+        <p>
+            <span class="fh5co-highlight">
+            <li> <a href="{{url_for('application_page')}}">Application</a> </li>
+            </span>
+        </p>-->
+    </div>
+</div>
+{% endblock %}
+
